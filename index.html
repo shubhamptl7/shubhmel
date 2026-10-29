@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shubhmel — Zomato &amp; Swiggy payout reconciliation for CA firms</title>
+    <meta
+      name="description"
+      content="Check every Zomato and Swiggy payout without checking every row. Shubhmel is being built for CA firms with restaurant clients. Register for free early access."
+    />
+    <meta name="theme-color" content="#f1efea" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Shubhmel" />
+    <meta property="og:title" content="Shubhmel — Zomato & Swiggy payout reconciliation for CA firms" />
+    <meta
+      property="og:description"
+      content="Check every restaurant payout without checking every row. In development — register for free early access."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shubhmel — payout reconciliation for CA firms" />
+    <meta
+      name="twitter:description"
+      content="Check every Zomato and Swiggy payout without checking every row. Free early access."
+    />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!--
+      Static twin of the early-access form, per Netlify's docs
+      (docs.netlify.com/manage/forms/setup/): Netlify detects forms by parsing
+      the built HTML, and the real form is rendered by React, so this hidden
+      copy is what registers "waitlist" with Netlify. Its field names must match
+      the fields src/lib/signup.ts sends. Never shown, never used by visitors.
+    -->
+    <form name="waitlist" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="email" name="email" />
+      <input type="text" name="role" />
+      <input type="text" name="source" />
+      <input type="text" name="bot-field" />
+    </form>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

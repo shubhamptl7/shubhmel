@@ -1,0 +1,52 @@
+.footer {
+  border-top: 1px solid var(--rule);
+  padding-block: 32px 40px;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.brand strong {
+  display: block;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.brand span {
+  font-size: 0.9rem;
+  color: var(--ink-3);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.92rem;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--ink-2);
+}
+
+.links a:hover {
+  color: var(--ink);
+}
+
+.contact {
+  font-size: 0.92rem;
+  color: var(--ink-2);
+}
+
+.contact a {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+}

@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Tells the frontend that Netlify Forms is available, so the signup form
+# submits for real. Builds anywhere else leave this unset and the form says
+# it isn't connected, instead of showing a success it can't back up.
+[build.environment]
+  VITE_SIGNUP_PROVIDER = "netlify"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

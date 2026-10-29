@@ -1,0 +1,52 @@
+/*
+  Shubhmel design tokens.
+  A warm stone "ledger paper" surface with deep ink type. The accent is a
+  ledger green that also means "matched", and turmeric amber means "needs
+  review" — so the two colours carry the product's two states rather than
+  decorating it. One dark ink band (How it works) gives the page rhythm.
+  Contrast checked: body/muted text >= 4.5:1 on --paper and --card.
+*/
+:root {
+  --paper: #f1efea;
+  --paper-2: #e8e5de;
+  --card: #ffffff;
+  --ink: #16181d;
+  --ink-2: #3d424c;
+  --ink-3: #626874;
+  --rule: #d9d5cc;
+  --rule-strong: #b9b4a8;
+
+  --brand: #1d6b48;
+  --brand-deep: #134a32;
+  --brand-ink: #ffffff;
+  --brand-soft: #e1ede5;
+
+  --review: #8a5000;
+  --review-strong: #d99a1e;
+  --review-soft: #fbebcc;
+
+  --deduct: #9c4221;
+
+  --night: #16181d;
+  --night-2: #20232a;
+  --night-rule: #343842;
+  --night-ink: #f1efea;
+  --night-ink-2: #b7bac2;
+  --night-brand: #5fc897;
+
+  --font-sans: "Schibsted Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  --shadow-float: 0 1px 0 rgba(22, 24, 29, 0.04), 0 18px 40px -18px rgba(22, 24, 29, 0.28);
+  --shadow-soft: 0 1px 2px rgba(22, 24, 29, 0.06);
+
+  --content: 1180px;
+  --gutter: clamp(18px, 4vw, 40px);
+
+  color-scheme: light;
+}

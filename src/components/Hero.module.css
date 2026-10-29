@@ -1,0 +1,142 @@
+.hero {
+  position: relative;
+  padding-block: clamp(36px, 6vw, 72px) clamp(56px, 8vw, 96px);
+}
+
+/* A faint ledger ruling behind the hero — the page's paper, not decoration. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    color-mix(in srgb, var(--rule) 55%, transparent) 31px,
+    color-mix(in srgb, var(--rule) 55%, transparent) 32px
+  );
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 85%);
+  pointer-events: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.announce {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 5px 12px 5px 6px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+  font-size: 0.84rem;
+  color: var(--ink-2);
+}
+
+.announceTag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-ink);
+  background: var(--brand);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.headline {
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  font-weight: 750;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.headline em {
+  font-style: normal;
+  color: var(--brand);
+  position: relative;
+  white-space: nowrap;
+}
+
+.lede {
+  font-size: clamp(1.03rem, 1.4vw, 1.16rem);
+  color: var(--ink-2);
+  max-width: 34em;
+  line-height: 1.6;
+}
+
+.signup {
+  max-width: 520px;
+}
+
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 2px;
+  transition: border-color 140ms ease;
+}
+
+.secondary:hover {
+  border-color: var(--ink);
+}
+
+.preview {
+  position: relative;
+  min-width: 0;
+}
+
+/* A second sheet behind the console: one client's file among several. */
+.preview::before {
+  content: "";
+  position: absolute;
+  inset: 18px -14px -14px 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+  z-index: -1;
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .preview::before {
+    inset: 14px -8px -10px 10px;
+  }
+}
+
+/* Phones: the announcement wraps cleanly instead of overflowing. */
+@media (max-width: 520px) {
+  .announce {
+    flex-wrap: wrap;
+    row-gap: 6px;
+    border-radius: 14px;
+    font-size: 0.8rem;
+    padding: 6px 12px 6px 6px;
+  }
+  .copy {
+    gap: 18px;
+  }
+}

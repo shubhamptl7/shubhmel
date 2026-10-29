@@ -1,0 +1,98 @@
+.section {
+  padding-block: clamp(72px, 10vw, 128px);
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  background: var(--night);
+  color: var(--night-ink);
+  border-radius: calc(var(--radius-lg) + 6px);
+  padding: clamp(28px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px);
+}
+
+/* The ledger ruling again, faintly, on ink. */
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    rgba(241, 239, 234, 0.05) 31px,
+    rgba(241, 239, 234, 0.05) 32px
+  );
+  pointer-events: none;
+}
+
+.copy,
+.formSide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.copy :global(.eyebrow) {
+  color: var(--night-ink-2);
+}
+
+.copy h2 {
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  font-weight: 700;
+}
+
+.copy > p {
+  color: var(--night-ink-2);
+  font-size: 1.04rem;
+}
+
+.benefits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.benefits li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 12px;
+  color: var(--night-ink);
+}
+
+.benefits li span:first-child {
+  color: var(--night-brand);
+  font-weight: 700;
+}
+
+.next {
+  border-top: 1px solid var(--night-rule);
+  padding-top: 16px;
+  font-size: 0.93rem;
+  color: var(--night-ink-2);
+}
+
+.next strong {
+  color: var(--night-ink);
+}
+
+.formSide {
+  justify-content: center;
+}
+
+.formSide h3 {
+  font-size: 1.2rem;
+  font-weight: 650;
+}
+
+@media (max-width: 880px) {
+  .panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

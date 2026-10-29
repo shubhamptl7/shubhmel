@@ -1,0 +1,144 @@
+.section {
+  padding-block: clamp(64px, 9vw, 120px);
+  border-top: 1px solid var(--rule);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(36px, 6vw, 88px);
+  align-items: start;
+}
+
+.heading {
+  position: sticky;
+  top: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heading h2 {
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  font-weight: 700;
+}
+
+.heading p {
+  color: var(--ink-2);
+  font-size: 1.05rem;
+  max-width: 30em;
+}
+
+.stack {
+  position: relative;
+  height: 104px;
+  margin-top: 18px;
+}
+
+.sheet {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--ink-2);
+  white-space: nowrap;
+  box-shadow: var(--shadow-soft);
+}
+
+.sheet i {
+  width: 8px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--brand-soft);
+  border: 1px solid color-mix(in srgb, var(--brand) 35%, transparent);
+}
+
+.tasks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ink);
+}
+
+.task {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 18px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.taskLabel {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding-top: 4px;
+}
+
+.task h3 {
+  font-size: 1.15rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  margin-bottom: 4px;
+}
+
+.task p {
+  color: var(--ink-2);
+  font-size: 0.97rem;
+}
+
+.repeat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 22px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.repeatIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--rule-strong);
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  color: var(--ink-2);
+}
+
+@media (max-width: 880px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .heading {
+    position: static;
+  }
+}
+
+@media (max-width: 520px) {
+  .task {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+}
+
+.sheet {
+  max-width: calc(100% - 60px);
+}
+
+.sheetName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
