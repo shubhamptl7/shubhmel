@@ -2,70 +2,69 @@ import { motion } from "motion/react";
 import styles from "./Audience.module.css";
 import { EASE, viewportOnce } from "../lib/motion";
 
-const POINTS = [
+const CARDS = [
   {
-    title: "Every restaurant client's files in one place",
-    body: "Each settlement filed under the right client and outlet, week after week.",
+    key: "owner",
+    eyebrow: "I own a restaurant",
+    title: "Make sure you receive the right money.",
+    body: "Zomato and Swiggy pay you one lump sum after deducting commission, taxes and charges. Shubhmel is being built to show you where each deduction came from and which ones don't match your agreement.",
+    points: [
+      "See what was deducted from each payout, in plain terms",
+      "Spot a billed rate that differs from your agreement",
+      "Know which orders haven't been settled yet",
+    ],
+    cta: "Get free early access as a restaurant owner",
   },
   {
-    title: "Only the rows that need a decision",
-    body: "Matching orders stay out of the way. Flags come with the reason and the working.",
-  },
-  {
-    title: "A summary to send, and one-click Tally export",
-    body: "Confirm your ledger names once, then export Tally-ready entries for each settlement in one click.",
+    key: "ca",
+    eyebrow: "I manage accounts for restaurants",
+    title: "Check many clients' settlements without the hours.",
+    body: "If you reconcile Zomato and Swiggy payouts for several restaurants every month, this is being built around your week.",
+    points: [
+      "Every client's files in one place, by outlet and week",
+      "Only the rows that need a decision, each with the working",
+      "A summary to send, and one-click Tally export once your ledger names are confirmed",
+    ],
+    cta: "Get free early access as an accountant",
   },
 ];
 
 export function Audience() {
   return (
     <section className={styles.section} aria-labelledby="audience-title">
-      <div className={`container ${styles.grid}`}>
-        <motion.div
-          className={styles.primary}
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={viewportOnce}
-          transition={{ duration: 0.6, ease: EASE }}
-        >
-          <span className="eyebrow">Built first for</span>
-          <h2 id="audience-title">CA and bookkeeping firms that handle restaurant clients.</h2>
-          <p>
-            If you reconcile Zomato and Swiggy payouts for several restaurants every month, this is
-            being built around your week.
-          </p>
-          <ul className={styles.points}>
-            {POINTS.map((p) => (
-              <li key={p.title}>
-                <span className={styles.tick} aria-hidden="true">
-                  ✓
-                </span>
-                <div>
-                  <strong>{p.title}</strong>
-                  <span>{p.body}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-
-        <motion.div
-          className={styles.secondary}
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={viewportOnce}
-          transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}
-        >
-          <span className="eyebrow">Also useful for</span>
-          <h3>Restaurant operators who check their own payouts</h3>
-          <p>
-            Run a restaurant or cloud kitchen and keep your own books? The same review works for your
-            outlets. If your accountant does the books, they&rsquo;re the person to send this page to.
-          </p>
-          <a href="#early-access" className={styles.link}>
-            Get free early access as an operator →
-          </a>
-        </motion.div>
+      <div className="container">
+        <h2 id="audience-title" className="sr-only">
+          Who Shubhmel is for
+        </h2>
+        <div className={styles.grid}>
+          {CARDS.map((card, i) => (
+            <motion.div
+              key={card.key}
+              className={styles.card}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewportOnce}
+              transition={{ duration: 0.6, ease: EASE, delay: i * 0.1 }}
+            >
+              <span className="eyebrow">{card.eyebrow}</span>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+              <ul className={styles.points}>
+                {card.points.map((p) => (
+                  <li key={p}>
+                    <span className={styles.tick} aria-hidden="true">
+                      ✓
+                    </span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href="#early-access" className={styles.link}>
+                {card.cta} →
+              </a>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

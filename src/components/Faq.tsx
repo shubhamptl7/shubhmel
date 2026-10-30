@@ -7,7 +7,7 @@ import { EASE, rise, viewportOnce } from "../lib/motion";
 const FAQS = [
   {
     q: `Who is ${BRAND} for?`,
-    a: "CA and bookkeeping firms that reconcile Zomato and Swiggy payouts for restaurant clients. Restaurant operators who keep their own books can use it for their outlets too.",
+    a: "Two groups: restaurant owners who want to be sure they received the right money from Zomato and Swiggy, and CA and bookkeeping firms that reconcile those payouts for several restaurant clients.",
   },
   {
     q: "Can I use it today?",

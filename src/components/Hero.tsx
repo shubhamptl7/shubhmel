@@ -20,17 +20,17 @@ export function Hero() {
         <div className={styles.copy}>
           <motion.span className={styles.announce} {...enter(0)}>
             <span className={styles.announceTag}>Free early access</span>
-            Being built for CA firms with restaurant clients
+            For restaurant owners and the accountants who check their payouts
           </motion.span>
 
           <motion.h1 className={styles.headline} {...enter(0.06)}>
-            Check every Zomato and Swiggy payout <em>without</em> checking every row.
+            Make sure Zomato and Swiggy <em>paid you</em> correctly.
           </motion.h1>
 
           <motion.p className={styles.lede} {...enter(0.12)}>
-            {BRAND} will read your Zomato and Swiggy settlement files, work out what each order should
-            have paid at the agreed rates, and match it against what actually settled. You see only
-            the rows that need a look, then export Tally-ready entries in one click.
+            Upload your Zomato and Swiggy payout reports. {BRAND} will recompute each order's commission,
+            GST and deductions at your agreed rates and show you only what doesn't match. Accountants
+            can then export Tally-ready entries in one click.
           </motion.p>
 
           <motion.div className={styles.signup} {...enter(0.18)}>

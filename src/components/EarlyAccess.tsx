@@ -24,7 +24,7 @@ export function EarlyAccess() {
           <div className={styles.copy}>
             <span className="eyebrow">Free early access</span>
             <h2 id="early-title">Get free early access to {BRAND}.</h2>
-            <p>Be one of the first firms to reconcile with it — no card, no cost while it&rsquo;s in early access.</p>
+            <p>Be one of the first restaurants and accountants to try it — no card, no cost while it&rsquo;s in early access.</p>
             <ul className={styles.benefits}>
               {BENEFITS.map((b) => (
                 <li key={b}>
@@ -40,7 +40,7 @@ export function EarlyAccess() {
           </div>
 
           <div className={styles.formSide}>
-            <h3>Register free with your work email</h3>
+            <h3>Get free early access</h3>
             <SignupForm source="closing" tone="dark" />
           </div>
         </motion.div>

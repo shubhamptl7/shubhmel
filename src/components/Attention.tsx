@@ -17,7 +17,7 @@ const gstGap = flagged.settled.gstOnCommission - flagged.expected.gstOnCommissio
 const CASES: Case[] = [
   {
     key: "commission",
-    title: "Commission above the agreed rate",
+    title: "Commission different from your agreement",
     summary: "Billed rate differs from the agreement",
     body: `Each order's commission is recomputed at the rate in the restaurant's agreement. If the platform billed a different rate, the order is flagged with both figures, so you can check the agreement before raising it.`,
     sampleTitle: `Order ${flagged.id}`,
@@ -30,7 +30,7 @@ const CASES: Case[] = [
   },
   {
     key: "outside",
-    title: "Charges outside the order rows",
+    title: "Deductions outside your orders",
     summary: "Ads, supplies, earlier-week adjustments",
     body: "Some deductions don't belong to any order: ad campaigns, supplies bought through the platform, adjustments carried from previous weeks. They're listed on their own, so a supplies purchase is never mistaken for a platform fee.",
     sampleTitle: "This week's settlement",
@@ -42,7 +42,7 @@ const CASES: Case[] = [
   },
   {
     key: "refunds",
-    title: "Refunds and cancellations",
+    title: "Refunds worth checking",
     summary: "Shown against the order they belong to",
     body: "Customer refunds, complaint charges and cancellation penalties are shown against the order they came from, so you can confirm them with the restaurant rather than finding them buried in a total.",
     sampleTitle: "Order 7410027763",
@@ -53,7 +53,7 @@ const CASES: Case[] = [
   },
   {
     key: "unsettled",
-    title: "Orders not settled yet",
+    title: "Orders whose money hasn't arrived",
     summary: "Carried forward, not marked missing",
     body: "A settlement file can include orders the platform hasn't paid yet. These are kept as pending and matched when a later file settles them — never counted twice, and never reported as missing money.",
     sampleTitle: "Pending settlement",
@@ -64,7 +64,7 @@ const CASES: Case[] = [
   },
   {
     key: "totals",
-    title: "Totals that don't tie to the file",
+    title: "Totals that don't add up",
     summary: "Shown, never rounded away",
     body: "The rows are added up and compared with the total the platform printed. If they disagree, the difference is shown to you — it is never quietly posted to a rounding line to make the numbers balance.",
     sampleTitle: "Batch check",

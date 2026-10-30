@@ -22,6 +22,14 @@ export type SignupOutcome =
   | { kind: "not-connected" }
   | { kind: "error" };
 
+const WHATSAPP_PATTERN = /^\+?[0-9 ()-]{7,16}$/;
+
+export function validateWhatsapp(value: string): string | null {
+  const trimmed = value.trim();
+  if (!trimmed) return null; // optional
+  return WHATSAPP_PATTERN.test(trimmed) ? null : "That doesn't look like a phone number — or leave it empty.";
+}
+
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export function validateEmail(value: string): string | null {
@@ -58,6 +66,7 @@ function rememberRegistration(email: string) {
 export async function registerForEarlyAccess(input: {
   email: string;
   role: Role;
+  whatsapp: string;
   source: string;
   botField: string;
 }): Promise<SignupOutcome> {
@@ -70,6 +79,7 @@ export async function registerForEarlyAccess(input: {
     "form-name": NETLIFY_FORM_NAME,
     email,
     role: input.role,
+    whatsapp: input.whatsapp.trim(),
     source: input.source,
     "bot-field": input.botField,
   });

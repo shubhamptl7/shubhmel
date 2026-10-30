@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import styles from "./SignupForm.module.css";
 import { CONTACT_EMAIL } from "../siteConfig";
 import { quick } from "../lib/motion";
-import { registerForEarlyAccess, validateEmail, type Role } from "../lib/signup";
+import { registerForEarlyAccess, validateEmail, validateWhatsapp, type Role } from "../lib/signup";
 
 type Props = {
   /** Recorded with the registration, so you can see which form converted. */
@@ -20,8 +20,8 @@ type State =
   | { phase: "error" };
 
 const ROLES: { value: Role; label: string }[] = [
+  { value: "restaurant_operator", label: "Restaurant owner" },
   { value: "ca_firm", label: "CA / accountant" },
-  { value: "restaurant_operator", label: "Restaurant operator" },
   { value: "other", label: "Other" },
 ];
 
@@ -29,18 +29,19 @@ export function SignupForm({ source, tone = "light" }: Props) {
   const uid = useId();
   const [email, setEmail] = useState("");
   const [role, setRole] = useState<Role>("");
+  const [whatsapp, setWhatsapp] = useState("");
   const [botField, setBotField] = useState("");
   const [fieldError, setFieldError] = useState<string | null>(null);
   const [state, setState] = useState<State>({ phase: "idle" });
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const problem = validateEmail(email);
+    const problem = validateEmail(email) ?? validateWhatsapp(whatsapp);
     setFieldError(problem);
     if (problem) return;
 
     setState({ phase: "submitting" });
-    const outcome = await registerForEarlyAccess({ email, role, source, botField });
+    const outcome = await registerForEarlyAccess({ email, role, whatsapp, source, botField });
     setState({ phase: outcome.kind });
   }
 
@@ -85,7 +86,7 @@ export function SignupForm({ source, tone = "light" }: Props) {
             transition={quick}
           >
             <label htmlFor={emailId} className="sr-only">
-              Work email
+              Your email address
             </label>
             <div className={`${styles.row} ${fieldError ? styles.invalid : ""}`}>
               <input
@@ -95,7 +96,7 @@ export function SignupForm({ source, tone = "light" }: Props) {
                 name="email"
                 inputMode="email"
                 autoComplete="email"
-                placeholder="you@yourfirm.in"
+                placeholder="Your email address"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -129,6 +130,21 @@ export function SignupForm({ source, tone = "light" }: Props) {
               </label>
             </div>
 
+            <input
+              className={styles.whatsapp}
+              type="tel"
+              name="whatsapp"
+              inputMode="tel"
+              autoComplete="tel"
+              placeholder="WhatsApp number (optional)"
+              aria-label="WhatsApp number (optional)"
+              value={whatsapp}
+              onChange={(e) => {
+                setWhatsapp(e.target.value);
+                if (fieldError) setFieldError(null);
+              }}
+            />
+
             <div className={styles.meta}>
               <fieldset className={styles.roleGroup}>
                 <legend>I'm a</legend>
@@ -153,7 +169,7 @@ export function SignupForm({ source, tone = "light" }: Props) {
               </p>
             ) : (
               <p id={helpId} className={styles.help}>
-                Free early access — no card, no cost. Role is optional.
+                Free early access — no card, no cost. Any email works, and role and WhatsApp are optional.
               </p>
             )}
 

@@ -7,7 +7,7 @@ export function Footer() {
       <div className={`container ${styles.inner}`}>
         <div className={styles.brand}>
           <strong>{BRAND}</strong>
-          <span>Restaurant payout reconciliation for CA firms. In development.</span>
+          <span>Zomato and Swiggy payout checks for restaurants and their accountants. In development.</span>
         </div>
         <ul className={styles.links}>
           <li>

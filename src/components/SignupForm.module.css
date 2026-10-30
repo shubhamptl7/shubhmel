@@ -249,3 +249,25 @@
 .onDark .submit:hover:not(:disabled) {
   background: var(--brand-deep);
 }
+
+.whatsapp {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-md);
+  outline: none;
+}
+
+.whatsapp:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px var(--brand-soft);
+}
+
+.onDark .whatsapp {
+  background: transparent;
+  color: var(--night-ink);
+  border-color: var(--night-rule);
+}

@@ -10,8 +10,8 @@ const TASKS = [
   },
   {
     label: "Line up",
-    title: "Order rows against what reached the bank",
-    body: "One lump payout, built from hundreds of orders. Matching them back by hand is spreadsheet work.",
+    title: "Order rows against the payout the platform settled",
+    body: "One lump payout, built from hundreds of orders (checking it against the bank statement is a separate job). Matching them back by hand is spreadsheet work.",
   },
   {
     label: "Recompute",
