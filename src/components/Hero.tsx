@@ -18,19 +18,19 @@ export function Hero() {
     <section className={styles.hero} id="top">
       <div className={`container ${styles.grid}`}>
         <div className={styles.copy}>
-          <motion.span className={styles.announce} {...enter(0)}>
-            <span className={styles.announceTag}>Free early access</span>
-            For restaurant owners and the accountants who check their payouts
-          </motion.span>
+          <motion.p className={styles.kicker} {...enter(0)}>
+            <span className={styles.kickerTag}>Free early access</span>
+            <span className={styles.kickerRule} aria-hidden="true" />
+            <span className={styles.kickerFor}>For restaurant owners &amp; their accountants</span>
+          </motion.p>
 
           <motion.h1 className={styles.headline} {...enter(0.06)}>
             Make sure Zomato and Swiggy <em>paid you</em> correctly.
           </motion.h1>
 
           <motion.p className={styles.lede} {...enter(0.12)}>
-            Upload your Zomato and Swiggy payout reports. {BRAND} will recompute each order's commission,
-            GST and deductions at your agreed rates and show you only what doesn't match. Accountants
-            can then export Tally-ready entries in one click.
+            Upload your Zomato and Swiggy payout reports. {BRAND} will recheck every commission, tax and
+            deduction against your agreed rates, and show you only what doesn&rsquo;t match.
           </motion.p>
 
           <motion.div className={styles.signup} {...enter(0.18)}>
